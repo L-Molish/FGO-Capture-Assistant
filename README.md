@@ -8,12 +8,25 @@
 
 ## 下载
 
+当前版本为 **v1.0.3（1.03）**，程序为 `FGO抓包助手-v1.0.3.exe`（GitHub 下载文件名为 `FGO-v1.0.3.exe`）。旧版升级请先关闭旧窗口，保留原有结果和设置。
+
 前往 [Releases 页面](https://github.com/L-Molish/FGO-Capture-Assistant/releases/latest) 下载最新版：
 
-- [FGO抓包助手-v1.0.2.exe](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v1.0.2/FGO-v1.0.2.exe)（GitHub 下载文件名为 `FGO-v1.0.2.exe`）
-- [使用说明.txt](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v1.0.2/instructions.txt)
+- [FGO抓包助手-v1.0.3.exe](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v1.0.3/FGO-v1.0.3.exe)（GitHub 下载文件名为 `FGO-v1.0.3.exe`）
+- [使用说明.txt](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v1.0.3/instructions.txt)
 
 下载后请先阅读 [完整使用说明](./使用说明.txt)。程序不需要安装，建议放入单独的可写文件夹后运行。
+
+### v1.0.3 更新内容
+
+- 当前成品为 `FGO抓包助手-v1.0.3.exe`；保留 HTTPS 依赖文件的打包修复，不关闭证书校验。
+- 报错优先说明失败步骤、已知问题和下一步操作，技术信息另列；完善模拟器通信、程序启动、证书、下载、资料更新及统计异常等提示。
+- Reqable 下载记录实际跳转域名，在 GitHub 或安装包服务器连接失败时明确显示“无法访问 GitHub”；其他来源、HTTP、HTTPS、DNS 和本地保存错误分别说明。
+- 去掉“类别”列和排序下拉框，新增卡池开放日期列（北京时间）；默认时间新到旧，点击“时间”或“抽数”表头即可正反序切换，箭头标明方向。缺失日期的记录在时间排序中置后。
+- 新增“更新统计资料”，发现未知卡池或图鉴时自动尝试后台更新一次，成功后重算当前文件。
+- 公开资料独立保存在程序旁的 `summon_metadata_cn.json`，后续通常新增卡池、从者或礼装无需重发 EXE；仅下载公开数据，不上传账号文件。
+- 更新失败保留旧资料，可手动重试；资料源尚未收录时保留明确提示，不强行给出完整出货率。
+- 更新本次游戏新增记录对应的内置国服资料；v1.0.2 及更早版本需要先升级一次。
 
 ### v1.0.2 更新内容
 
@@ -30,11 +43,11 @@
 - 补充模拟器管理接口、ROOT、VPN/通知授权、抓包与统计文件的中文问题说明和处理建议。
 - 状态栏显示失败步骤；剪贴板复制失败不影响已保存结果的使用。
 
-### v1.0.2 文件校验
+### v1.0.3 文件校验
 
 ```text
-FGO-v1.0.2.exe / FGO抓包助手-v1.0.2.exe
-SHA256: A570A033A3D6A3355ACCD5BF23B61117D1B61DD78C88E7AE2B16ED9F372E7FB9
+FGO-v1.0.3.exe / FGO抓包助手-v1.0.3.exe
+SHA256: 84EA6EBED53AB6AF12AD99BCD2BAE4B9B88A4562B1056C5F8FD6C5FBE56322EF
 ```
 
 ## 适用环境
@@ -64,7 +77,7 @@ SHA256: A570A033A3D6A3355ACCD5BF23B61117D1B61DD78C88E7AE2B16ED9F372E7FB9
 ### 第一次使用
 
 1. 启动需要使用的 MuMu 安卓 15 模拟器。
-2. 打开 `FGO抓包助手-v1.0.2.exe`。
+2. 打开 `FGO抓包助手-v1.0.3.exe`（或 GitHub 下载的 `FGO-v1.0.3.exe`）。
 3. 点击“刷新列表”，选择目标模拟器。
 4. 点击“检查环境”（可选）。
 5. 点击“初始化环境”，等待提示“环境准备完成”。
@@ -101,6 +114,8 @@ Chaldea -> 导入 -> Https抓包 -> 从剪贴板导入 -> 选择国服
 
 统计数据来自账号历史汇总，并非完整逐抽记录。每个已识别福袋会扣除一个保证五星位置，剧情池计入整体统计。部分自选五星等情况可能影响结果，因此统计仅供参考。
 
+v1.0.3 可点击“更新统计资料”联网刷新公开国服资料。遇到未知记录会自动尝试一次，成功后直接重算，无需重抓；更新后可离线使用。下载失败保留旧资料，上游尚未收录时请稍后再更新。
+
 ## 隐私与安全
 
 - 抓包和统计均在本机完成，软件不会主动上传抓包结果。
@@ -126,6 +141,7 @@ Chaldea -> 导入 -> Https抓包 -> 从剪贴板导入 -> 选择国服
 ### Reqable 下载失败
 
 日志会显示下载进度。持续收到数据时会继续下载，连接中断或连续约 60 秒无数据时自动重试一次。仍失败时可手动下载官方 Android x86_64 APK，命名为 `reqable-android-x86_64.apk`，放入程序旁的 `downloads` 文件夹后重新初始化。
+日志还会显示当前服务器域名。“无法访问 GitHub”仅用于确认在 GitHub 下载链路发生的连接失败，不代表所有下载错误都来自 GitHub；HTTP 错误、HTTPS 校验及 DNS 问题会保留具体原因。
 
 ### 证书保存目录失败
 
