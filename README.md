@@ -1,18 +1,26 @@
 # FGO抓包助手
 
-当前正式版本：**v2.1.0**。Windows 单文件程序，支持 MuMu 安卓 15 ROOT 实例上的 FGO 国服、日服登录抓包、抽卡统计和迦勒底数据报告。
+当前正式版本：**v2.1.1**。Windows 单文件程序，支持 MuMu 安卓 15 ROOT 实例上的 FGO 国服、日服登录抓包、抽卡统计和迦勒底数据报告。
 
-[下载 v2.1.0](https://github.com/L-Molish/FGO-Capture-Assistant/releases/tag/v2.1.0)
+[下载 v2.1.1](https://github.com/L-Molish/FGO-Capture-Assistant/releases/tag/v2.1.1)
 
 ## 使用
 
-1. 下载 [FGO抓包助手-v2.1.0.exe](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.1.0/FGO-v2.1.0.exe) 和 [使用说明.txt](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.1.0/instructions.txt)，把程序放到可写文件夹，无需安装 Python。
+1. 下载 [FGO抓包助手-v2.1.1.exe](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.1.1/FGO-v2.1.1.exe) 和 [使用说明.txt](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.1.1/instructions.txt)，把程序放到可写文件夹，无需安装 Python。
 2. 选择国服或日服，自动检测或手动选择 MuMu 路径，再选择目标模拟器实例。
 3. 首次使用点击“初始化环境”，需要 MuMu 安卓 15 ROOT、KernelSU 和对应区服游戏。当前初始化仍会安装和配置 Reqable，用于现有证书模块与兼容流程，同时配置 mitmproxy 抓包证书。
-4. 点击“检查环境”自动识别出口，选择默认的 mitmproxy 或原有 Reqable 方式后开始抓包，按提示完成游戏登录，可随时点击“终止”。使用模拟器内 FlClash 或 biubiu 时，先开启代理／加速器并进入游戏标题画面，再开始抓包。
+4. 点击“检查环境”自动识别出口，选择默认的 mitmproxy 或原有 Reqable 方式后开始抓包，按提示完成游戏登录，可随时点击“终止”。使用模拟器内代理／加速器时，先开启代理／加速器并进入游戏标题画面，再开始抓包。
 5. 成功后查看剪贴板复制结果，或从结果文件夹导入原始 JSON。国服结果在 `results/`，日服在 `results/JP/`。
 6. 在“统计”页读取该区服最新结果或手动选文件；支持卡池名、UP 从者搜索，以及时间、抽数、UP 五星数、UP 出货率表头排序。
 7. 在“数据报告”查看御主、从者、羁绊、抽卡、关卡和资源统计，并导出 PNG 长图。
+
+## v2.1.1 更新
+
+- 按实际能力自动选路，移除 VPN 包名准入白名单。优先发现并验证本地 HTTP 代理端点；没有可用端点时尝试游戏 UID 中继。
+- 保持代理端点的地址与端口，按 `(host, port)` 去重；无法保持地址的转发会明确说明，不静默改写。
+- CONNECT 200 仅表示请求被接受；出站 TLS 成功后才判定中继出站连通，失败按实际阶段诊断。
+- 补充中继启动半途失败、终止及 PID 缺失时的资源清理。
+- 更新内置日服统计资料，修复新增礼装记录被误报为未知从者的问题。
 
 ## v2.1.0 更新
 
@@ -44,11 +52,16 @@
 
 ## 验证与限制
 
-v2.1.0：336 项自动化测试通过；实机完成证书模块安装、重启、system 与 Conscrypt 双库核验，并确认重复初始化不再安装模块或重启。最终 EXE 的环境检查与重复初始化验证通过。完整游戏抓包沿用此前日服 FlClash 和电脑关闭 TUN、仅系统代理场景的实机验收，本轮未重新运行。
+v2.1.1：386 项自动化测试通过。最终 EXE 已在日服、`com.etalien.booster` 活动加速会话下完成游戏 UID 中继、出站 TLS、有效登录响应保存与解码、统计和报告构建，以及退出后的设备代理和临时资源恢复。
 
-暂未适配其它 VPN 客户端、PAC 或仅 SOCKS 的电脑系统代理。程序不会自动关闭或重新配置电脑 Clash/TUN；未知页面不宣称全部适配。
+`biubiu`、`FlClash`、`com.etalien.booster` 是实测样本，不是品牌准入白名单。其它软件会按实际能力探测和尝试路径；尚未逐一实测，不保证全部兼容。只有 PAC 或只有 SOCKS 的电脑系统代理仍不接入 mitmproxy 上游。程序不会自动关闭或重新配置电脑 Clash/TUN。
 
-EXE SHA256：`29D240E3FBBEDA6E6BD65594762B6F3664FBD3F9DDBDD53E47ECD7D4943DE636`
+## 文件校验与回退
+
+v2.1.1 EXE：91,977,169 字节。
+
+SHA-256：`1A20B39BE92A34F0F2054F19DB239817E11E6C73DD51042E38F5C887844A6032`
+
+[旧版 v2.1.0](https://github.com/L-Molish/FGO-Capture-Assistant/releases/tag/v2.1.0) 保留用于回退，不包含本次通用选路改造。
 
 程序未签名，Windows 可能提示未知发布者。请核对下载来源和摘要。
-
