@@ -1,18 +1,26 @@
 # FGO抓包助手
 
-当前正式版本：**v2.0.0（2.0）**。Windows 单文件程序，支持 MuMu 安卓 15 ROOT 实例上的 FGO 国服、日服登录抓包、抽卡统计和迦勒底数据报告。
+当前正式版本：**v2.1.0**。Windows 单文件程序，支持 MuMu 安卓 15 ROOT 实例上的 FGO 国服、日服登录抓包、抽卡统计和迦勒底数据报告。
 
-[下载 v2.0.0](https://github.com/L-Molish/FGO-Capture-Assistant/releases/tag/v2.0.0)
+[下载 v2.1.0](https://github.com/L-Molish/FGO-Capture-Assistant/releases/tag/v2.1.0)
 
 ## 使用
 
-1. 下载 `FGO-v2.0.0.exe` 和 `instructions.txt`，把程序放到可写文件夹，无需安装 Python。
+1. 下载 [FGO抓包助手-v2.1.0.exe](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.1.0/FGO-v2.1.0.exe) 和 [使用说明.txt](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.1.0/instructions.txt)，把程序放到可写文件夹，无需安装 Python。
 2. 选择国服或日服，自动检测或手动选择 MuMu 路径，再选择目标模拟器实例。
-3. 首次使用点击“初始化环境”，需要 MuMu 安卓 15 ROOT、KernelSU 和对应区服游戏。初始化配置 Reqable、系统证书及授权。
-4. 配置完成后点击“开始抓包”，按提示完成游戏登录。等待登录没有整体倒计时，可以点击“终止”结束。
+3. 首次使用点击“初始化环境”，需要 MuMu 安卓 15 ROOT、KernelSU 和对应区服游戏。当前初始化仍会安装和配置 Reqable，用于现有证书模块与兼容流程，同时配置 mitmproxy 抓包证书。
+4. 点击“检查环境”自动识别出口，选择默认的 mitmproxy 或原有 Reqable 方式后开始抓包，按提示完成游戏登录，可随时点击“终止”。使用模拟器内 FlClash 或 biubiu 时，先开启代理／加速器并进入游戏标题画面，再开始抓包。
 5. 成功后查看剪贴板复制结果，或从结果文件夹导入原始 JSON。国服结果在 `results/`，日服在 `results/JP/`。
 6. 在“统计”页读取该区服最新结果或手动选文件；支持卡池名、UP 从者搜索，以及时间、抽数、UP 五星数、UP 出货率表头排序。
 7. 在“数据报告”查看御主、从者、羁绊、抽卡、关卡和资源统计，并导出 PNG 长图。
+
+## v2.1.0 更新
+
+- 新增内置 mitmproxy 抓包方式，作为默认入口；保留原有 Reqable 抓包方式。
+- “检查环境”自动识别电脑网络、明确可用的 HTTP/HTTPS 系统代理，以及模拟器内 FlClash 或 biubiu 出口，无需手动选择底层线路。
+- 程序自动管理本机 CA，提供首次安装、重启和 system／Conscrypt 双库核验。
+- 修复模块只合并 Conscrypt 导致 system 证书库缺失、初始化反复失败的问题；区分证书缺失、读取失败和内容不匹配，证书就绪后不再重复安装或重启。
+- 按真实有效期刷新日服中继 hostmap，修复首次登录时映射过期的问题。
 
 ## v2.0.0 更新
 
@@ -36,9 +44,11 @@
 
 ## 验证与限制
 
-v2.0.0 直接采用已验收的“诊断修复版 2”二进制，内容不变：308 项测试通过，成品资源、离屏启动、UTF-8 日志通道、终止和无输出通道退出检查通过。既往已完成真实国服、日服抓包验证，以及当前环境的授权和只读环境检查。真实首次安装及最终 EXE 的完整初始化流程未重新执行；未知页面故障边界主要由模拟测试覆盖，不宣称所有游戏弹窗已适配。
+v2.1.0：336 项自动化测试通过；实机完成证书模块安装、重启、system 与 Conscrypt 双库核验，并确认重复初始化不再安装模块或重启。最终 EXE 的环境检查与重复初始化验证通过。完整游戏抓包沿用此前日服 FlClash 和电脑关闭 TUN、仅系统代理场景的实机验收，本轮未重新运行。
 
-EXE SHA256：`662098FB0258CCA3B02715C2693C9F68493AE15334AA56997AEE9604F2554950`
+暂未适配其它 VPN 客户端、PAC 或仅 SOCKS 的电脑系统代理。程序不会自动关闭或重新配置电脑 Clash/TUN；未知页面不宣称全部适配。
+
+EXE SHA256：`29D240E3FBBEDA6E6BD65594762B6F3664FBD3F9DDBDD53E47ECD7D4943DE636`
 
 程序未签名，Windows 可能提示未知发布者。请核对下载来源和摘要。
 
