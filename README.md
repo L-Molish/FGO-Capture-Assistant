@@ -12,7 +12,7 @@ Windows 单文件程序，支持 MuMu 安卓 12 / 15、雷电 14（安卓 14）�
 - **v2.2.5 新增「攒石规划」与界面优化**：读取完整国服登录抓包后即可按 Mooncell 最新卡池名与模糊搜索选择目标卡池，内置卡池横幅与 UP 从者头像预览（悬停/点击查看从者名称与 `+N 位` 其余从者，期间限定红框、剧情限定蓝框），搭配统一风格日历选择器与双板块收支明细搜索（常驻可榨干 / 后续时间绑定），按月统计圣晶石、呼符、梦火及开池当天 / 梦火全刷抽数（预测范围随资料滚动，未来国服档期按日服平移一年）。
 - 同步优化统计与报告界面：圣晶石、呼符、梦火图标化显示，召唤次数卡片样式优化，「导出统计长图」移至「数据报告」页，并全面升级高清图标与去杂边展示。
 
-[下载 Windows 程序](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.3.0/FGO.exe) · [使用说明](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.3.0/instructions.txt) · [文件校验](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.3.0/SHA256SUMS.txt)
+[下载 Windows 程序](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.3.0/FGO-Capture-Assistant.exe) · [使用说明](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.3.0/instructions.txt) · [文件校验](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.3.0/SHA256SUMS.txt)
 
 ## 项目导航
 
