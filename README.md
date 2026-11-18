@@ -1,7 +1,8 @@
-# FGO抓包助手 v2.3.0
+# FGO抓包助手 v2.3.1
 
 Windows 单文件程序，支持 MuMu 安卓 12 / 15、雷电 14（安卓 14）及雷电 9（安卓 9）ROOT 实例，可保存完整游戏登录响应、查看抽卡统计、迦勒底数据报告与**攒石规划**，也支持打开已有的本地数据文件。各模拟器共用同一程序与操作流程，选择实例后自动识别，无需手动切换安卓版本。
 
+- **v2.3.1 修复雷电 9 代理地址选择**：修复部分用户在雷电 9 上「环境检查全部通过、游戏却一直提示连接失败」的问题。此前程序可能把设备代理指向电脑上 Clash、Tailscale、加速器等虚拟网卡的地址（候选顺序还不固定），链路依赖这些隧道的状态，一变就断；现在优先使用模拟器网关与本机真实网卡，虚拟网卡仅作兜底，并在日志中打印实际使用的代理地址。
 - **v2.3.0 支持国服渠道服**：除 B服（含享游安卓、iOS 账号，同一安装包）外，新增九游、小米、vivo、4399、应用宝五个渠道服抓包。抓包页国服新增「渠道」选择，默认「自动识别」正在运行的渠道；渠道服使用独立的联运登录服务器，现已纳入识别范围。已在 MuMu 安卓 12 上对五个渠道逐一实测完整登录响应抓包与自动登录。同时给「终止」增加了兜底：任务进程意外消失或长时间无响应时，界面会自动收尾恢复可用，不再需要强制关闭程序。
 - **v2.2.11 修复自动更新重启报错**：修复单文件 EXE 在自动更新替换后拉起新进程时因继承 `_MEI` 环境变量而报 `Failed to load Python DLL` 的问题，确保一键更新重启稳定生效。（该修复由发起更新的程序执行，因此从 v2.2.10 及更早版本升级到本版本时，这次重启仍可能弹出一次相同报错，重新打开程序即可；此后更新不再出现。）
 - **v2.2.10 自动更新支持多源回退**：当直连 GitHub API 或下载节点受阻时，自动回退至 `jsdelivr` / GitHub 加速镜像检查最新版本并下载安装包，且经加速节点下载强制校验 `SHA256SUMS.txt` 与可执行文件头，兼顾连通性与安全性。
@@ -12,7 +13,7 @@ Windows 单文件程序，支持 MuMu 安卓 12 / 15、雷电 14（安卓 14）�
 - **v2.2.5 新增「攒石规划」与界面优化**：读取完整国服登录抓包后即可按 Mooncell 最新卡池名与模糊搜索选择目标卡池，内置卡池横幅与 UP 从者头像预览（悬停/点击查看从者名称与 `+N 位` 其余从者，期间限定红框、剧情限定蓝框），搭配统一风格日历选择器与双板块收支明细搜索（常驻可榨干 / 后续时间绑定），按月统计圣晶石、呼符、梦火及开池当天 / 梦火全刷抽数（预测范围随资料滚动，未来国服档期按日服平移一年）。
 - 同步优化统计与报告界面：圣晶石、呼符、梦火图标化显示，召唤次数卡片样式优化，「导出统计长图」移至「数据报告」页，并全面升级高清图标与去杂边展示。
 
-[下载 Windows 程序](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.3.0/FGO.exe) · [使用说明](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.3.0/instructions.txt) · [文件校验](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.3.0/SHA256SUMS.txt)
+[下载 Windows 程序](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.3.1/FGO.exe) · [使用说明](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.3.1/instructions.txt) · [文件校验](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.3.1/SHA256SUMS.txt)
 
 ## 项目导航
 
