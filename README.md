@@ -1,12 +1,27 @@
-# FGO抓包助手 v2.2.6
+# FGO抓包助手 v2.2.7
 
 Windows 单文件程序，支持 MuMu 安卓 12 / 15、雷电 14（安卓 14）及雷电 9（安卓 9）ROOT 实例，可保存完整游戏登录响应、查看抽卡统计、迦勒底数据报告与**攒石规划**，也支持打开已有的本地数据文件。各模拟器共用同一程序与操作流程，选择实例后自动识别，无需手动切换安卓版本。
 
+- **v2.2.7 修复出货率显示与雷电自动检测**：随包统计资料刷新到最新，修复部分国服用户「统计」页五星出货率显示为 `--` 的问题（内置国服资料此前停在 2026-10-28，图鉴中的新记录无法识别，程序为避免算错而隐藏出货率）；同时修复雷电模拟器自动检测——部分雷电 9 / 14 的注册表只登记 `DisplayIcon`、没有安装路径，以前只能靠固定目录碰运气，现在改为从 `DisplayIcon` 回退识别。
 - **v2.2.6 修复自动登录卡顿与 OCR 异常中断**：优化标题画面「点击屏幕」呼吸闪烁容差与快速重试节奏（点击后 2.5s 复查，支持更多安全补点），并增加 Windows OCR 语言引擎回退与优雅降级（缺少系统 OCR 组件或连续识别异常时仅暂停自动点击并提示手动点击，不再抛 `RuntimeError` 中断抓包）。
 - **v2.2.5 新增「攒石规划」与界面优化**：读取完整国服登录抓包后即可按 Mooncell 最新卡池名与模糊搜索选择目标卡池，内置卡池横幅与 UP 从者头像预览（悬停/点击查看从者名称与 `+N 位` 其余从者，期间限定红框、剧情限定蓝框），搭配统一风格日历选择器与双板块收支明细搜索（常驻可榨干 / 后续时间绑定），按月统计圣晶石、呼符、梦火及开池当天 / 梦火全刷抽数（当前预测覆盖至 2027-08-02，未来国服档期按日服平移一年）。
 - 同步优化统计与报告界面：圣晶石、呼符、梦火图标化显示，召唤次数卡片样式优化，「导出统计长图」移至「数据报告」页，并全面升级高清图标与去杂边展示。
 
-[下载 Windows 程序](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.2.6/FGO-v2.2.6.exe) · [使用说明](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.2.6/instructions.txt) · [文件校验](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.2.6/SHA256SUMS.txt)
+[下载 Windows 程序](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.2.7/FGO-v2.2.7.exe) · [使用说明](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.2.7/instructions.txt) · [文件校验](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.2.7/SHA256SUMS.txt)
+
+## 项目导航
+
+源码入口是 `fgo_assistant.py`。它启动主窗口，也负责分派后台任务。日常使用可双击 `启动抓包助手.cmd`，或运行 `release/` 里的 EXE。
+
+| 要找的内容 | 位置 |
+| --- | --- |
+| 桌面界面 | `src/fluent_ui/`，从 `window.py` 进入抓包页、统计页和报告页 |
+| 设备和抓包流程 | `src/public_setup.py` 检查环境，`src/mitm_runtime/` 管理会话并按原文保存完整登录响应 |
+| 统计与报告 | `src/fgo_statistics.py` 读取并计算，`src/fgo_report.py` 生成报告，`src/summon_metadata.py` 更新公共资料 |
+| 旧版兼容 | `src/legacy/` 保存旧版 Reqable 实现，供兼容测试使用 |
+| 随包资源 | `assets/` 保存图标、报告素材和国服／日服内置资料 |
+| 验证与打包 | `tests/` 是自动化用例，`tests/fixtures/` 是用例读取的样本。`tools/` 包含打包配置、成品检查和维护脚本 |
+| 交付与本机数据 | `docs/` 保存模板和历史交付说明。`release/` 放当前程序、说明和本机运行产生的数据，历史抓包在 `release/results/` |
 
 ## 支持范围
 
@@ -17,7 +32,7 @@ Windows 单文件程序，支持 MuMu 安卓 12 / 15、雷电 14（安卓 14）�
 | 雷电 14（安卓 14）ROOT | 已实测：普通网络、FlClash、biubiu 开启时抓包 | 已实测：普通网络；加速器待测 |
 | 雷电 9（安卓 9）ROOT | 已实测：普通网络、FlClash、biubiu 开启时抓包 | 尚未实机验证 |
 
-已在 MuMu 安卓 12／15、雷电 9／14 上分别完成国服实际登录抓包，核验完整文件、剪贴板和代理恢复。
+本轮已在 MuMu 安卓 12／15、雷电 9／14 上分别完成国服实际登录抓包，核验完整文件、剪贴板和代理恢复；本轮未重新实测日服。
 
 模拟器列表自动显示 MuMu、雷电版本和安卓版本；也可手动选择安装文件夹。雷电不同安装位置的同编号实例分别保存，不会混为同一个选择。雷电 9 和 14 的同编号实例请逐台运行，避免模拟器自身的 ADB 编号冲突。
 
@@ -38,7 +53,7 @@ v2.2.4 修复 MuMu 与雷电同编号实例的 ADB 串连：雷电使用独立�
 1. 将 EXE 放在可写文件夹，无需安装 Python。升级时可放回原程序目录，沿用已有设置、公开统计资料和本机证书。
 2. 选择区服和 MuMu 或雷电实例，点击“初始化环境”，再点“检查环境”。公开版使用内置 mitmproxy，无需下载 Reqable。初始化会先检查所选模拟器设置中的 ROOT 开关；未开启时自动打开、核验设置已保存，并自动重启运行中的所选实例，再等待安卓和 ADB ROOT 就绪。首次初始化会把本机公开 CA 安装到该安卓版本实际使用的证书库并立即核验，无需手动导入证书或操作 KernelSU；ROOT 已开启且证书已匹配时不会重复安装或重启。证书使用运行时挂载；模拟器重启后，开始抓包会自动补装并核验。已受信任时跳过安装，无需为了证书重复点击初始化。
 3. 点击“开始抓包”，助手会重新启动所选游戏，自动点击加载完成提示和标题登录，收到登录响应后立即停止点击。已登录的账号无需再手动点击；首次账号登录、验证码或协议确认需要本人处理，处理后会继续自动登录。抓取成功后，国服文件保存在 `results/CN/`，日服保存在 `results/JP/`。旧版位于 `results/` 根目录的国服文件仍可通过“读最新”或手动打开读取。
-4. 在“统计”页读取最新文件，或选择已有的本地文件。可查看抽数、五星数、UP 出货率和报告，并在“数据报告”页导出 PNG 长图；国服完整登录抓包还可切换“攒石规划”进行抽数预测。移动带有 `.origin` 的文件时请一起移动区服标记。
+4. 在“统计”页读取最新文件，或选择已有的本地文件。可查看抽数、五星数、UP 出货率和报告，并导出 PNG 长图。移动带有 `.origin` 的文件时请一起移动区服标记。
 5. 抓包成功时，任务栏图标会闪烁提醒；助手在后台时不会抢占前台，切回后显示完整结果详情。
 6. 导入 Chaldea 时，进入“导入 → Https抓包”，选择“从剪贴板导入”；也可选择“从文件导入”，打开本次生成的 `toplogin_时间戳.json`。剪贴板中应是响应正文，不要复制文件夹路径；复制过其他文字后可直接使用文件导入。
 
@@ -56,4 +71,22 @@ v2.2.3 修复了快照遗漏御主名和好友码的问题，报告可直接显�
 
 v2.2.4 恢复完整登录响应输出：文件和剪贴板都保留完整正文，可直接用于 Chaldea 的“HTTPS 抓包导入”。此前生成的精简快照保留在原目录中，但缺失字段需重新抓包才能补回；过去保存的完整原始文件仍可直接使用。[Chaldea 导入器源码](https://github.com/chaldea-center/chaldea/blob/ba81b31307ad48f531d09828916abc15ea13815c/lib/app/modules/import_data/import_https_page.dart#L1004)
 
-旧版程序和说明仍在各自的发布页。[v2.2.4 发布记录](https://github.com/L-Molish/FGO-Capture-Assistant/releases/tag/v2.2.4)
+旧版程序和说明仍在各自的发布页。[v2.1.1 发布记录](https://github.com/L-Molish/FGO-Capture-Assistant/releases/tag/v2.1.1)
+
+## 源码运行与打包
+
+在项目根目录运行以下 PowerShell 命令。依赖版本见 `requirements-fluent.txt`。
+
+```powershell
+# 启动源码版
+.\.venv-fluent\Scripts\python.exe fgo_assistant.py
+
+# 离屏运行测试
+$env:QT_QPA_PLATFORM = 'offscreen'
+.\.venv-fluent\Scripts\python.exe -m unittest discover -s tests -t .
+
+# 构建新的单文件程序，默认输出在 dist/
+.\.venv-fluent\Scripts\python.exe -m PyInstaller tools/FGO.spec
+```
+
+成品核验工具为 `tools/verify_fluent_package.py` 和 `tools/verify_public_snapshot.py`，均以待检查的 EXE 路径作为参数。
