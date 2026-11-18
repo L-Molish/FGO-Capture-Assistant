@@ -1,7 +1,8 @@
-# FGO抓包助手 v2.3.3
+# FGO抓包助手 v2.3.4
 
 Windows 单文件程序，支持 MuMu 安卓 12 / 15、雷电 14（安卓 14）及雷电 9（安卓 9）ROOT 实例，可保存完整游戏登录响应、查看抽卡统计、迦勒底数据报告与**攒石规划**，也支持打开已有的本地数据文件。各模拟器共用同一程序与操作流程，选择实例后自动识别，无需手动切换安卓版本。
 
+- **v2.3.4 修正从者名显示**：`メルトリリス` 在日服资料里会被翻成「メルト莉莉丝」（只翻了后半截），国服资料里该从者的名字则是英文 `Meltryllis`——现在统一显示为官方译名「溶解莉莉丝」，卡池名与 UP 从者列表都会正确显示。
 - **v2.3.3 修复 MuMu 识别与残留代理卡死**：新版 MuMu 12 把管理器放在 `shell` 目录下，之前只认 `nx_main`，会报「找不到 MuMuManager.exe」——现在会在安装目录里自动查找（含 `shell` 布局），手动选目录时选到安装根目录或 `shell` 这一层都能识别。另外，模拟器里残留的旧代理（例如装过 Reqable 后退出留下的全局代理项）以前会让抓包一直停在「设备上已有代理设置」，现在会自动清除并继续，抓包结束后也不会把这些残留值写回去。
 - **v2.3.2 修复攒石规划打不开与资料更新不到**：登录响应里没有礼物盒（`userPresentBox`）时，攒石规划不再整页拒绝打开，按空礼物盒继续计算；「更新资料」的攒石资料新增 `gh-proxy` / `ghfast` / `ghproxy.net` 镜像回退，直连 GitHub 不通时也能拉到新资料；更新失败的提示会带上当前实际使用的资料日期，不再只让人「检查网络」。
 - **v2.3.1 修复雷电 9 代理地址选择**：修复部分用户在雷电 9 上「环境检查全部通过、游戏却一直提示连接失败」的问题。此前程序可能把设备代理指向电脑上 Clash、Tailscale、加速器等虚拟网卡的地址（候选顺序还不固定），链路依赖这些隧道的状态，一变就断；现在优先使用模拟器网关与本机真实网卡，虚拟网卡仅作兜底，并在日志中打印实际使用的代理地址。
@@ -15,7 +16,7 @@ Windows 单文件程序，支持 MuMu 安卓 12 / 15、雷电 14（安卓 14）�
 - **v2.2.5 新增「攒石规划」与界面优化**：读取完整国服登录抓包后即可按 Mooncell 最新卡池名与模糊搜索选择目标卡池，内置卡池横幅与 UP 从者头像预览（悬停/点击查看从者名称与 `+N 位` 其余从者，期间限定红框、剧情限定蓝框），搭配统一风格日历选择器与双板块收支明细搜索（常驻可榨干 / 后续时间绑定），按月统计圣晶石、呼符、梦火及开池当天 / 梦火全刷抽数（预测范围随资料滚动，未来国服档期按日服平移一年）。
 - 同步优化统计与报告界面：圣晶石、呼符、梦火图标化显示，召唤次数卡片样式优化，「导出统计长图」移至「数据报告」页，并全面升级高清图标与去杂边展示。
 
-[下载 Windows 程序](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.3.3/FGO.exe) · [使用说明](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.3.3/instructions.txt) · [文件校验](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.3.3/SHA256SUMS.txt)
+[下载 Windows 程序](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.3.4/FGO.exe) · [使用说明](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.3.4/instructions.txt) · [文件校验](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.3.4/SHA256SUMS.txt)
 
 ## 项目导航
 
