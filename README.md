@@ -1,7 +1,8 @@
-# FGO抓包助手 v2.2.9
+# FGO抓包助手 v2.2.10
 
 Windows 单文件程序，支持 MuMu 安卓 12 / 15、雷电 14（安卓 14）及雷电 9（安卓 9）ROOT 实例，可保存完整游戏登录响应、查看抽卡统计、迦勒底数据报告与**攒石规划**，也支持打开已有的本地数据文件。各模拟器共用同一程序与操作流程，选择实例后自动识别，无需手动切换安卓版本。
 
+- **v2.2.10 自动更新支持多源回退**：当直连 GitHub API 或下载节点受阻时，自动回退至 `jsdelivr` / GitHub 加速镜像检查最新版本并下载安装包，且经加速节点下载强制校验 `SHA256SUMS.txt` 与可执行文件头，兼顾连通性与安全性。
 - **v2.2.9 新增自动检查更新与界面视觉优化**：启动后在后台静默检查 GitHub 最新正式版，有更新时左下角「检查更新」图标亮起提示蓝点并在标题栏右侧显示「更新到 vX.X.X」胶囊按钮；点击可查看更新说明、带进度条下载并校验 `SHA256SUMS.txt` 后一键重启替换。同步优化了提示弹窗与更新弹窗布局，并将「绑定模拟器」成功标记改为绿色。
 - **v2.2.8 攒石资料可单独更新**：点「更新资料」现在会同时刷新国服统计资料、日服统计资料和攒石资料，不必等新安装包；活动签到与纪念奖励资料补齐到日服 2026-11-18（国服预测 2027-11-18），2027 年 8 月中旬之后的攒石目标不会再漏掉活动收入。随包资料同步更新到同一版本。
 - **v2.2.7 修复出货率显示与雷电自动检测**：随包统计资料刷新到最新，修复部分国服用户「统计」页五星出货率显示为 `--` 的问题（内置国服资料此前停在 2026-10-28，图鉴中的新记录无法识别，程序为避免算错而隐藏出货率）；同时修复雷电模拟器自动检测——部分雷电 9 / 14 的注册表只登记 `DisplayIcon`、没有安装路径，以前只能靠固定目录碰运气，现在改为从 `DisplayIcon` 回退识别。
@@ -9,7 +10,7 @@ Windows 单文件程序，支持 MuMu 安卓 12 / 15、雷电 14（安卓 14）�
 - **v2.2.5 新增「攒石规划」与界面优化**：读取完整国服登录抓包后即可按 Mooncell 最新卡池名与模糊搜索选择目标卡池，内置卡池横幅与 UP 从者头像预览（悬停/点击查看从者名称与 `+N 位` 其余从者，期间限定红框、剧情限定蓝框），搭配统一风格日历选择器与双板块收支明细搜索（常驻可榨干 / 后续时间绑定），按月统计圣晶石、呼符、梦火及开池当天 / 梦火全刷抽数（预测范围随资料滚动，未来国服档期按日服平移一年）。
 - 同步优化统计与报告界面：圣晶石、呼符、梦火图标化显示，召唤次数卡片样式优化，「导出统计长图」移至「数据报告」页，并全面升级高清图标与去杂边展示。
 
-[下载 Windows 程序](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.2.9/FGO-v2.2.9.exe) · [使用说明](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.2.9/instructions.txt) · [文件校验](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.2.9/SHA256SUMS.txt)
+[下载 Windows 程序](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.2.10/FGO-v2.2.10.exe) · [使用说明](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.2.10/instructions.txt) · [文件校验](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.2.10/SHA256SUMS.txt)
 
 ## 项目导航
 
