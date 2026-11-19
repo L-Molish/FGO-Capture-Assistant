@@ -1,7 +1,8 @@
-# FGO抓包助手 v2.3.5
+# FGO抓包助手 v2.3.6 · PaperMoon
 
-Windows 单文件程序，支持 MuMu 安卓 12 / 15、雷电 14（安卓 14）及雷电 9（安卓 9）ROOT 实例，可保存完整游戏登录响应、查看抽卡统计、迦勒底数据报告与**攒石规划**，也支持打开已有的本地数据文件。各模拟器共用同一程序与操作流程，选择实例后自动识别，无需手动切换安卓版本。
+**PaperMoon**（FGO 抓包 · 统计 · 攒石规划）是 Windows 单文件程序，支持 MuMu 安卓 12 / 15、雷电 14（安卓 14）及雷电 9（安卓 9）ROOT 实例，可保存完整游戏登录响应、查看抽卡统计、迦勒底数据报告与**攒石规划**，也支持打开已有的本地数据文件。各模拟器共用同一程序与操作流程，选择实例后自动识别，无需手动切换安卓版本。
 
+- **v2.3.6 更名 PaperMoon**：程序名由「FGO抓包助手」改为 **PaperMoon**（ペーパームーン / 纸月）。名字取自型月里的虚数观测装置——它的用途是把高维的世界压到一张平面上、统一坐标轴，跟这个程序要做的事（把游戏里的账目摊平看清楚）算是一路的。窗口标题、报告页脚与文件属性同步更新；图标把原圣晶石图案矢量化后垫在浅灰渐变圆角瓦片上，各尺寸从矢量重绘，小图标不再发虚。抓包、统计与攒石规划功能不变，已有设置、历史抓包与本机证书继续沿用。
 - **v2.3.5 修复 Q 版立绘与手动选目录**：攒石规划左侧卡片那张 Q 版立绘其实是 Passionlip（热情迷唇），之前标注成「溶解莉莉丝」——图片文件名和标注都已改正；同一从者在国服资料里的名字原本是英文 `Passionlip`，也一并改成「热情迷唇」。另外「手动选择」更宽容了：选到 `MuMu Player 12` 或它下面的 `shell`、`device` 等中间层都能认出，对话框标题也写明是选文件夹、不是选 exe 文件。
 - **v2.3.4 修正从者名显示**：`メルトリリス` 在日服资料里会被翻成「メルト莉莉丝」（只翻了后半截），国服资料里该从者的名字则是英文 `Meltryllis`——现在统一显示为官方译名「溶解莉莉丝」，卡池名与 UP 从者列表都会正确显示。
 - **v2.3.3 修复 MuMu 识别与残留代理卡死**：新版 MuMu 12 把管理器放在 `shell` 目录下，之前只认 `nx_main`，会报「找不到 MuMuManager.exe」——现在会在安装目录里自动查找（含 `shell` 布局），手动选目录时选到安装根目录或 `shell` 这一层都能识别。另外，模拟器里残留的旧代理（例如装过 Reqable 后退出留下的全局代理项）以前会让抓包一直停在「设备上已有代理设置」，现在会自动清除并继续，抓包结束后也不会把这些残留值写回去。
@@ -17,7 +18,7 @@ Windows 单文件程序，支持 MuMu 安卓 12 / 15、雷电 14（安卓 14）�
 - **v2.2.5 新增「攒石规划」与界面优化**：读取完整国服登录抓包后即可按 Mooncell 最新卡池名与模糊搜索选择目标卡池，内置卡池横幅与 UP 从者头像预览（悬停/点击查看从者名称与 `+N 位` 其余从者，期间限定红框、剧情限定蓝框），搭配统一风格日历选择器与双板块收支明细搜索（常驻可榨干 / 后续时间绑定），按月统计圣晶石、呼符、梦火及开池当天 / 梦火全刷抽数（预测范围随资料滚动，未来国服档期按日服平移一年）。
 - 同步优化统计与报告界面：圣晶石、呼符、梦火图标化显示，召唤次数卡片样式优化，「导出统计长图」移至「数据报告」页，并全面升级高清图标与去杂边展示。
 
-[下载 Windows 程序](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.3.5/FGO.exe) · [使用说明](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.3.5/instructions.txt) · [文件校验](https://github.com/L-Molish/FGO-Capture-Assistant/releases/download/v2.3.5/SHA256SUMS.txt)
+[下载 Windows 程序](https://github.com/L-Molish/PaperMoon-FGOHelper/releases/download/v2.3.6/FGO.exe) · [使用说明](https://github.com/L-Molish/PaperMoon-FGOHelper/releases/download/v2.3.6/instructions.txt) · [文件校验](https://github.com/L-Molish/PaperMoon-FGOHelper/releases/download/v2.3.6/SHA256SUMS.txt)
 
 ## 项目导航
 
@@ -82,7 +83,7 @@ v2.2.3 修复了快照遗漏御主名和好友码的问题，报告可直接显�
 
 v2.2.4 恢复完整登录响应输出：文件和剪贴板都保留完整正文，可直接用于 Chaldea 的“HTTPS 抓包导入”。此前生成的精简快照保留在原目录中，但缺失字段需重新抓包才能补回；过去保存的完整原始文件仍可直接使用。[Chaldea 导入器源码](https://github.com/chaldea-center/chaldea/blob/ba81b31307ad48f531d09828916abc15ea13815c/lib/app/modules/import_data/import_https_page.dart#L1004)
 
-旧版程序和说明仍在各自的发布页。[v2.1.1 发布记录](https://github.com/L-Molish/FGO-Capture-Assistant/releases/tag/v2.1.1)
+旧版程序和说明仍在各自的发布页。[v2.1.1 发布记录](https://github.com/L-Molish/PaperMoon-FGOHelper/releases/tag/v2.1.1)
 
 ## 源码运行与打包
 
