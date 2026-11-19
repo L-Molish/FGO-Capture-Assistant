@@ -1,4 +1,4 @@
-# FGO抓包助手 v2.3.6 · PaperMoon
+# FGO抓包助手 v2.3.7 · PaperMoon
 
 <p align="center">
   <img src="docs/readme/banner.png" alt="PaperMoon · FGO 抓包助手" width="100%">
@@ -9,18 +9,18 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-2.3.6-4A90D9" alt="version">
+  <img src="https://img.shields.io/badge/version-2.3.7-4A90D9" alt="version">
   <img src="https://img.shields.io/badge/platform-Windows%2010%20%2F%2011-0078D4" alt="platform">
   <img src="https://img.shields.io/badge/emulator-MuMu%20%7C%20%E9%9B%B7%E7%94%B5-supported-2EA043" alt="emulator">
   <img src="https://img.shields.io/badge/license-freeware-lightgrey" alt="license">
 </p>
 
 <p align="center">
-  <a href="https://github.com/L-Molish/PaperMoon-FGOHelper/releases/download/v2.3.6/FGO.exe">下载</a>
+  <a href="https://github.com/L-Molish/PaperMoon-FGOHelper/releases/download/v2.3.7/FGO.exe">下载</a>
   ·
-  <a href="https://github.com/L-Molish/PaperMoon-FGOHelper/releases/download/v2.3.6/instructions.txt">使用说明</a>
+  <a href="https://github.com/L-Molish/PaperMoon-FGOHelper/releases/download/v2.3.7/instructions.txt">使用说明</a>
   ·
-  <a href="https://github.com/L-Molish/PaperMoon-FGOHelper/releases/download/v2.3.6/SHA256SUMS.txt">文件校验</a>
+  <a href="https://github.com/L-Molish/PaperMoon-FGOHelper/releases/download/v2.3.7/SHA256SUMS.txt">文件校验</a>
 </p>
 
 ## 目录
@@ -32,7 +32,6 @@
   - [攒石规划：看到未来一年该攒多少](#攒石规划看到未来一年该攒多少)
 - [支持范围](#支持范围)
   - [已实测](#已实测)
-  - [开发中](#开发中)
   - [不支持](#不支持)
 - [快速开始](#快速开始)
 - [常见问题](#常见问题)
@@ -104,33 +103,30 @@
 
 ### 已实测
 
-| 模拟器 | 国服 | 日服 |
-| --- | --- | --- |
-| MuMu 安卓 12 ROOT | ✅ 已实测（普通网络 / FlClash / biubiu） | — |
-| MuMu 安卓 15 ROOT | ✅ 已实测（含重启后自动恢复证书） | ✅ 保持原有支持，本轮未重测 |
-| 雷电 14（安卓 14）ROOT | ✅ 已实测（普通网络 / FlClash / biubiu） | ✅ 已实测普通网络（加速器待测） |
-| 雷电 9（安卓 9）ROOT | ✅ 已实测（普通网络 / FlClash / biubiu） | — |
+| 模拟器 | 国服 | 日服 | 台服 |
+| --- | --- | --- | --- |
+| MuMu 安卓 12 ROOT | ✅ 已实测（普通网络 / FlClash / biubiu） | — | ✅ 已实测（普通网络，无需加速器） |
+| MuMu 安卓 15 ROOT | ✅ 已实测（含重启后自动恢复证书） | ✅ 保持原有支持，本轮未重测 | — |
+| 雷电 14（安卓 14）ROOT | ✅ 已实测（普通网络 / FlClash / biubiu） | ✅ 已实测普通网络（加速器待测） | — |
+| 雷电 9（安卓 9）ROOT | ✅ 已实测（普通网络 / FlClash / biubiu） | — | — |
 
-**国服渠道服（v2.3.0 起，已在 MuMu 安卓 12 上逐个实测）**：
+**国服渠道服（已在 MuMu 安卓 12 上逐个实测）**：
 - B服 / 享游 / iOS（同一安装包）
 - 九游
 - 小米
 - vivo
 - 4399
 - 应用宝
+- OPPO（v2.3.7 起）
+- 华为（v2.3.7 起）
 
-### 开发中
-
-以下渠道与区服目前正在适配开发中，**尚未正式支持**：
-- 🧪 OPPO 渠道服
-- 🧪 华为渠道服
-- 🧪 台服
+**台服（v2.3.7 起）**：小萌代理版本。实测**不需要加速器或代理**——台服流量走本机真实网络，程序按国服同样的直连流程抓取。首次启动会下载较多资源，耐心等游戏进入标题画面后开始抓包即可。
 
 ### 不支持
 
 - **雷电同编号实例并发**：雷电 9 与雷电 14 的同编号实例请逐台运行，避免模拟器自身的 ADB 端口与编号发生冲突。
 - **日服多设备引继**：日服同一账号引继到另一台设备后，原设备将无法继续登录，多设备测试请逐台引继。
-- **日服攒石规划**：攒石规划功能目前仅支持国服（需以国服完整登录响应为基准，并基于国服预测档期计算）。
+- **日服 / 台服攒石规划**：攒石规划目前仅支持国服（需以国服完整登录响应为基准，并基于国服预测档期计算）。日服、台服账号可以正常抓包和看统计，但攒石页会提示不适用——没有对应区服的权威活动档期数据。
 
 ## 快速开始
 
@@ -166,11 +162,10 @@ A: 图鉴里有随包资料还没收录的新从者。程序算不准就不给�
 
 ## 更新日志
 
-- **v2.3.6 更名 PaperMoon：程序名改为 PaperMoon，窗口标题、报告页脚与文件属性同步，图标重新矢量化
+- **v2.3.7 支持 OPPO / 华为 / 台服**：国服渠道新增 OPPO 与华为（与其它渠道服同一抓包流程）；新增台服区服（小萌代理），实测无需加速器即可直连；修复 MuMu 加速服务弹窗挡住游戏、以及 `dumpsys window` 首行为 null 导致自动登录从不点击的问题
+- **v2.3.6 更名 PaperMoon**：程序名改为 PaperMoon，窗口标题、报告页脚与文件属性同步，图标重新矢量化
 - **v2.3.5 修正 Q 版立绘标注与手动选目录：立绘其实是热情迷唇（Passionlip），标注与文件名已改正；手动选目录时选到中间层也能识别
 - **v2.3.4 修正从者名显示：`メルトリリス` / `Meltryllis` 统一显示为官方译名「溶解莉莉丝」
-- **v2.3.3 修复 MuMu 识别与残留代理卡死：新版 MuMu 12 管理器在 `shell` 目录下也能识别；模拟器里残留的旧代理会自动清除
-- **v2.3.2 修复攒石规划打不开与资料更新不到：缺礼物盒时按空盒继续计算；攒石资料新增 gh-proxy / ghfast / ghproxy.net 镜像回退
 
 更早的版本见 [Releases](https://github.com/L-Molish/PaperMoon-FGOHelper/releases)。
 
