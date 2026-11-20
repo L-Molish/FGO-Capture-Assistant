@@ -1,4 +1,4 @@
-# FGO抓包助手 v2.3.7 · PaperMoon
+# FGO抓包助手 v2.3.8 · PaperMoon
 
 <p align="center">
   <img src="docs/readme/banner.png" alt="PaperMoon · FGO 抓包助手" width="100%">
@@ -9,18 +9,18 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-2.3.7-4A90D9" alt="version">
+  <img src="https://img.shields.io/badge/version-2.3.8-4A90D9" alt="version">
   <img src="https://img.shields.io/badge/platform-Windows%2010%20%2F%2011-0078D4" alt="platform">
   <img src="https://img.shields.io/badge/emulator-MuMu%20%7C%20%E9%9B%B7%E7%94%B5-supported-2EA043" alt="emulator">
   <img src="https://img.shields.io/badge/license-freeware-lightgrey" alt="license">
 </p>
 
 <p align="center">
-  <a href="https://github.com/L-Molish/PaperMoon-FGOHelper/releases/download/v2.3.7/FGO.exe">下载</a>
+  <a href="https://github.com/L-Molish/PaperMoon-FGOHelper/releases/download/v2.3.8/FGO.exe">下载</a>
   ·
-  <a href="https://github.com/L-Molish/PaperMoon-FGOHelper/releases/download/v2.3.7/instructions.txt">使用说明</a>
+  <a href="https://github.com/L-Molish/PaperMoon-FGOHelper/releases/download/v2.3.8/instructions.txt">使用说明</a>
   ·
-  <a href="https://github.com/L-Molish/PaperMoon-FGOHelper/releases/download/v2.3.7/SHA256SUMS.txt">文件校验</a>
+  <a href="https://github.com/L-Molish/PaperMoon-FGOHelper/releases/download/v2.3.8/SHA256SUMS.txt">文件校验</a>
 </p>
 
 ## 目录
@@ -162,7 +162,8 @@ A: 图鉴里有随包资料还没收录的新从者。程序算不准就不给�
 
 ## 更新日志
 
-- **v2.3.7 支持 OPPO / 华为 / 台服**：国服渠道新增 OPPO 与华为（与其它渠道服同一抓包流程）；新增台服区服（小萌代理），实测无需加速器即可直连；修复 MuMu 加速服务弹窗挡住游戏、以及 `dumpsys window` 首行为 null 导致自动登录从不点击的问题
+- **v2.3.8 修复台服卡在标题页**：台服标题页的「Touch Screen」是英文艺术字，中文 OCR 读不出来，自动登录一直停在这一步。现在改用「固定位置 + 浅青蓝 + 画面闪烁」三重判定来识别，不再依赖 OCR。同时修掉三个渠道共用的两处问题：MuMu 加速服务弹窗挡住游戏、以及 `dumpsys window` 首行为 null 导致自动登录从不点击。
+- **v2.3.7 支持 OPPO / 华为 / 台服**：国服渠道新增 OPPO 与华为（与其它渠道服同一抓包流程）；新增台服区服（小萌代理），实测无需加速器即可直连
 - **v2.3.6 更名 PaperMoon**：程序名改为 PaperMoon，窗口标题、报告页脚与文件属性同步，图标重新矢量化
 - **v2.3.5 修正 Q 版立绘标注与手动选目录：立绘其实是热情迷唇（Passionlip），标注与文件名已改正；手动选目录时选到中间层也能识别
 - **v2.3.4 修正从者名显示：`メルトリリス` / `Meltryllis` 统一显示为官方译名「溶解莉莉丝」
